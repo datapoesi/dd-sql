@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>dd-sql</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <link rel="stylesheet" href="codemirror/juejin.css">
+    <link rel="stylesheet" href="codemirror/3024-day.css">
+    <link rel="icon"
+        href="data:;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+</head>
+
+<body>
+    <main>
+        <h1>dd-sql</h1>
+
+        <p>Currently using a sample database, but you can also use <span><label id="use-own-DB">your own<input
+                        type="file" id="input-localDB"></label></span>.</p>
+
+        <div id="editor-wrapper">
+            <div id="editor-sql"></div>
+            <div id="editor-commands">
+                <button id="button-execSQL" type="submit">▶ Run query</button>
+                <button id="button-resetSQL">Reset</button>
+                <div id="error"></div>
+            </div>
+        </div>
+
+        <div id="output-wrapper">
+
+
+            <div class="tabs">
+                <div id="tab-query-output" class="tab active-tab">Query result</div>
+                <div id="tab-metadata" class="tab">DB metadata</div>
+                <div id="tab-syntax" class="tab">SQL Syntax</div>
+            </div>
+
+            <table id="query-output" class="db-content">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+            <div id="metadata" class="db-content" style="display:none">
+                <div id="metadata-dbName">Name of DB: <span></span></div>
+                <div id="metadata-dbSize">Size of DB: <span></span>.</div>
+                <div id="metadata-tables"></div>
+            </div>
+            <div id="syntax" class="db-content" style="display:none"></div>
+        </div>
+
+    </main>
+    <script src="codemirror/codemirror.js"></script>
+    <script src="codemirror/codemirror-sql.js"></script>
+    <script src="sql-wasm.js"></script>
+    <script type="module" src="./src/index.js"></script>
+
+</body>
+
+</html>
